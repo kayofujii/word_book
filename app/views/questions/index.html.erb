@@ -1,12 +1,18 @@
 <h1>単語一覧</h1>
 <%= link_to "新規投稿へ",  new_question_path %>
+
+<%= form_tag({controller:"questions",action:"index"}, method: :get) do %>
+<%= text_field_tag :search %>
+<%= submit_tag '検索する'  %>
+<% end %>
+
 <div class="container">
   <% @questions.each do |t| %>
-    <div class="question">
-      <%= t.q_body %>
-      <%= link_to "答えを見る", question_path(t.id) %>
-      <%= link_to "編集する", edit_question_path(t.id) %>
-      <%= link_to "削除する", question_path(t.id), method: :delete %>
-    </div>
+  <div class="question">
+    <%= t.q_body %>
+    <%= link_to "答えを見る", question_path(t.id) %>
+    <%= link_to "編集する", edit_question_path(t.id) %>
+    <%= link_to "削除する", question_path(t.id), method: :delete %>
+  </div>
   <% end %>
 </div>

@@ -3,6 +3,12 @@ class QuestionsController < ApplicationController
 
   def index
     @questions = Question.all
+    if params[:search]
+     #部分検索
+     @questions = Question.where("q_body LIKE ? ",'%' + params[:search] + '%').or(Question.where("a_body LIKE ? ", "%" + params[:search] + "%"))
+    else
+     @questions= Question.all
+   end
   end
 
   def new
