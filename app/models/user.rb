@@ -4,6 +4,7 @@ class User < ApplicationRecord
   validates :name,
   uniqueness: true, #一意性
   presence: true #必須
+  has_many :questions
 
   devise :database_authenticatable, :registerable,
   :recoverable, :rememberable, :validatable
