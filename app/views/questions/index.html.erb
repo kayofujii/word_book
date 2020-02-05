@@ -1,0 +1,10 @@
+<h1>単語一覧</h1>
+<%= link_to "新規投稿へ",  new_question_path %>
+<div class="container">
+  <% @questions.each do |t| %>
+    <div class="question">
+      <%= t.q_body %>
+      <%= t.a_body %>
+    </div>
+  <% end %>
+</div>
