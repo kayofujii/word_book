@@ -19,3 +19,7 @@ Question.create(q_body: '選ぶ', a_body: 'select', user_id: 1)
 Question.create(q_body: '成功する', a_body: 'succeed', user_id: 1)
 Question.create(q_body: '受け取る', a_body: 'receive', user_id: 1)
 Question.create(q_body: '所属する', a_body: 'belong', user_id: 1)
+
+Quiz.create(question: 'アイデンティティ', right_answer: 'identity', user_id: 1)
+Quiz.create(question: '動物園', right_answer: 'zoo', user_id: 1)
+Quiz.create(question: 'エンジニア', right_answer: 'engineer', user_id: 1)

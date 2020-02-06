@@ -1,0 +1,25 @@
+<% @answer.each do |t| %>
+<div class="question">
+  <%= t.id %>
+  <%= t.q_body %><br>
+   <% if t.a_body == @answer.body %>
+     正解です
+    <% else %>
+     不正解 正解は<%= t.a_body %>です
+   <% end %>
+
+   if @answer.kekka
+     正解です
+   else
+     不正解 正解は<%= @anwser.question.a_body %>です
+   end
+
+   if body === @answer.body
+     # seikai
+     @answer.kekka = true
+   else
+    # huseikai
+     @answer.kekka = false
+   end
+</div>
+<% end %>

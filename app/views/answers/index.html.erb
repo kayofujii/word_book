@@ -1,0 +1,6 @@
+  <% @quizzes.zip(@answers).each do |quiz, answer| %>
+  <%= quiz.question %>
+  <%= quiz.right_answer %>
+  <%= answer.body %>
+  <hr>
+  <% end %>

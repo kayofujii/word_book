@@ -1,0 +1,13 @@
+<div class="container">
+<%= form_with model: @answer, scope: :answer do |f| %>
+  <% @quizzes.each do |t| %>
+  <div class="question">
+    <%= t.id %>
+    <%= t.question %>
+  </div>
+    <%= f.text_field "#{t.id}" %>
+  <% end %>
+  <br>
+ <%= f.submit '回答する' %>
+<% end %>
+</div>

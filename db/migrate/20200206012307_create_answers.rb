@@ -3,7 +3,7 @@ class CreateAnswers < ActiveRecord::Migration[6.0]
     create_table :answers do |t|
       t.string :body
       t.references :user
-      t.references :question
+      t.references :quiz
       t.timestamps
     end
   end

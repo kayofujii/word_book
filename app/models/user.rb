@@ -10,6 +10,7 @@ class User < ApplicationRecord
   presence: true #必須
   has_many :questions
   has_many :answers
+  has_many :quiz
   #emailを不必要に
   def email_required?
     false
