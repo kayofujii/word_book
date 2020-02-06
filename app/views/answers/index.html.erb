@@ -1,6 +1,16 @@
-  <% @quizzes.zip(@answers).each do |quiz, answer| %>
-  <%= quiz.question %>
-  <%= quiz.right_answer %>
-  <%= answer.body %>
-  <hr>
-  <% end %>
+<table class="table">
+<tr><th>問題</th><th>正解</th><th>あなたの回答</th></tr>
+<% @quizzes.zip(@answers).each do |quiz, answer| %>
+<tr>
+<td><%= quiz.question %></td>
+<td><%= quiz.right_answer %></td>
+<td><%= answer.body %></td>
+<td><% if quiz.right_answer == answer.body %>
+正解です
+<% else %>
+不正解です。正解は<%= quiz.right_answer %>です
+<% end %>
+</td>
+</tr>
+<% end %>
+</table>
