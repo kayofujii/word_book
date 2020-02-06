@@ -2,7 +2,7 @@ class QuestionsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @questions = Question.order("RAND()").limit(2)
+    @questions = Question.all
     if params[:search]
      #部分検索
      @questions = Question.where("q_body LIKE ? ",'%' + params[:search] + '%').or(Question.where("a_body LIKE ? ", "%" + params[:search] + "%"))
