@@ -1,11 +1,11 @@
 <h1 class="text-center font-weight-bold">英単語</h1>
 <h3 class="text-center">〜<b>プログラミング</b>はできなくても、<br>
-  <b>英語</b>ぐらいできるようになりたい人のための〜</h3>
+  <b>英語</b>ぐらいできるようになりたい〜</h3>
 <% if user_signed_in? %>
  <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %><hr>
 <% else %>
  <%= link_to "新規登録", new_user_registration_path %><br>
  <%= link_to "ログイン", quizzes_path %><hr>
 <% end %>
- <%= link_to "単語帳", quizzes_path %><hr>
- <%= link_to "単語マスタメンテナンス", questions_path %><hr>
+ <%= link_to "単語テスト 上級編", quizzes_path %><hr>
+ <%= link_to "単語テスト 初級編", questions_path %><hr>

@@ -1,25 +1,24 @@
 class AnswersController < ApplicationController
   def create
-    answer_params.each{ |key, variable|
+      answer_params.each{ |key, variable|
       @answer = Answer.new(quiz_id: key, body: variable, user_id: current_user.id)
       @answer.save
     }
     redirect_to action: "index"
-    # @answer = Answer.new(answer_params)
-    # @answer.user_id = current_user.id
-    # binding.pry
-    # if @answer.save
-    #   redirect_to action: "index"
-    # else
-    #   redirect_to action: "index"
-    # end
   end
 
   def index
     @answers = Answer.all
     @quizzes = Quiz.all
     @count = 0
-    @quizcount =  @quizzes.count 
+    @quizzes.zip(@answers).each do |quiz, answer|
+      if quiz.right_answer == answer.body
+        @count += 1
+      end
+    end
+    @quizcount =  @quizzes.count
+    kekka = ( @count / @quizcount.to_f ) * 100.floor
+    @kekka = kekka.floor
   end
 
   # def destroy
@@ -34,3 +33,19 @@ class AnswersController < ApplicationController
     params.require(:answer).permit!.to_unsafe_h
   end
 end
+
+# if (@answers == nil)
+#   answer_params.each{ |key, variable|
+#     @answer = Answer.new(quiz_id: key, body: variable, user_id: current_user.id)
+#     @answer.save
+#   }
+#    redirect_to action: "index"
+# else
+#   Answer.find(params[:id].destroy
+#   answer_params.each{ |key, variable|
+#     @answer = Answer.new(quiz_id: key, body: variable, user_id: current_user.id)
+#     @answer.save
+#   }
+#  redirect_to action: "index"
+# end
+#   藤井

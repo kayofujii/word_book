@@ -2,6 +2,7 @@ class QuizzesController < ApplicationController
   before_action :authenticate_user!
 
   def index
+    Answer.destroy_all
     @quizzes = Quiz.all
     # @quiz = Quiz.find(params[:quiz_id])
     @answer = Answer.new
@@ -43,7 +44,7 @@ class QuizzesController < ApplicationController
   end
 
   def destroy
-    Quiz.find(params[:id]).destroy
+    quiz.find(params[:id]).destroy
     redirect_to action: :index
   end
 
