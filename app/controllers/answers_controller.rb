@@ -18,11 +18,19 @@ class AnswersController < ApplicationController
   def index
     @answers = Answer.all
     @quizzes = Quiz.all
+    @count = 0
+    @quizcount =  @quizzes.count 
   end
+
+  # def destroy
+  #   Answer.find(params[:id]).destroy
+  #   redirect_to action: :index
+  # end
 
   private
   def answer_params
     # binding.pry
-    params.require(:answer).permit!.to_h
+    # params.require(:answer).permit!.to_h
+    params.require(:answer).permit!.to_unsafe_h
   end
 end

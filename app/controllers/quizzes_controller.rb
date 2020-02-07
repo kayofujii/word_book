@@ -43,7 +43,7 @@ class QuizzesController < ApplicationController
   end
 
   def destroy
-    quiz.find(params[:id]).destroy
+    Quiz.find(params[:id]).destroy
     redirect_to action: :index
   end
 

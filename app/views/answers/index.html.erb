@@ -7,6 +7,7 @@
 <td><%= answer.body %></td>
 <td><% if quiz.right_answer == answer.body %>
 正解です
+<% @count += 1 %>
 <% else %>
 不正解です。正解は<%= quiz.right_answer %>です
 <% end %>
@@ -14,3 +15,6 @@
 </tr>
 <% end %>
 </table>
+
+正解数は<%= @count %>です。
+正解率は<%= @count / @quizcount %>です。
