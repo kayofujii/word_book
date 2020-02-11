@@ -3,15 +3,15 @@ class QuizzesController < ApplicationController
 
   def index
     Answer.destroy_all
-    @quizzes = Quiz.all
+    @quizzes = Quiz.order(id: "ASC")
     # @quiz = Quiz.find(params[:quiz_id])
     @answer = Answer.new
   end
 
   def new
     @quiz = Quiz.new
-    @quiz = Quiz.find(params[:quiz_id])
-    @answer = Answer.new
+    # @quiz = Quiz.find(params[:quiz_id])
+    # @answer = Answer.new
   end
 
   def create
@@ -44,7 +44,8 @@ class QuizzesController < ApplicationController
   end
 
   def destroy
-    quiz.find(params[:id]).destroy
+    # binding.pry
+    Quiz.find(params[:id]).destroy
     redirect_to action: :index
   end
 

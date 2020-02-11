@@ -2,7 +2,6 @@
 <div class="question">
   <p><%= @question.q_body %></p>
   <p><%= @question.a_body %></p>
-  <p><%= @question.user.name %></p>
   <%= link_to "編集する", edit_question_path(@question.id) %>
   <%= link_to "削除する", question_path(@question.id), method: :delete %>
 </div>

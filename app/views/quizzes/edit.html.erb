@@ -1,0 +1,12 @@
+<%= form_for(@quiz, :url => { controller:'quizzes', action:'update'})do |f| %>
+   <%= f.label :問題を入力してください %>
+   <br>
+   <%= f.text_field :question%>
+   <br>
+   <%= f.label :答えを入力してください %>
+   <br>
+   <%= f.text_field :right_answer%>
+   <br>
+   <%= f.submit class: "btn btn-primary" %>
+   <br>
+<% end %>
