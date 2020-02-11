@@ -4,7 +4,6 @@ class QuizzesController < ApplicationController
   def index
     Answer.destroy_all
     @quizzes = Quiz.order(id: "ASC")
-    # @quiz = Quiz.find(params[:quiz_id])
     @answer = Answer.new
   end
 
@@ -18,7 +17,7 @@ class QuizzesController < ApplicationController
     @quiz = Quiz.new(quiz_params)
     @quiz.user_id = current_user.id
     if @quiz.save
-      redirect_to action: "index"
+      redirect_to action: "pre"
     else
       redirect_to action: "new"
     end
@@ -26,8 +25,8 @@ class QuizzesController < ApplicationController
 
   def show
     @quiz = Quiz.find(params[:id])
-    @answers = @quiz.answers
-    @answer = Answer.new
+    # @answers = @quiz.answers
+    # @answer = Answer.new
   end
 
   def edit
@@ -46,9 +45,15 @@ class QuizzesController < ApplicationController
   def destroy
     # binding.pry
     Quiz.find(params[:id]).destroy
-    redirect_to action: :index
+    redirect_to action: :pre
   end
 
+  def pre
+    # @quizzes = Quiz.order(id: "ASC")
+    # binding.pry
+    @user = current_user
+    @quizzes = Quiz.where(user_id: @user.id).all.order("created_at ASC")
+  end
     private
 
     def quiz_params

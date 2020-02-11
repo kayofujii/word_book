@@ -3,19 +3,17 @@
     <div class="col-md-1">
     </div>
     <div class="col-md-10">
-      <%= form_with model: @answer, scope: :answer do |f|  %>
       <% @quizzes.each do |t| %>
       <div class="question">
         <%= t.id %>
-        <%= t.question %>
+        <%= t.question %><br>
+        <%= link_to "答えを見る", quiz_path(t.id) %>
         <%= link_to "編集する", edit_quiz_path(t.id) %>
         <%= link_to "削除する", quiz_path(t.id), method: :delete %>
       </div>
-      <%= f.text_field "#{t.id}", class: "col-md-12 form-control" %>
       <% end %>
+      <%= link_to "クイズを作成する", new_quiz_path, class: "btn btn-primary" %><br>
       <br>
-      <%= f.submit '回答する', class: "btn btn-primary"%>
-      <% end %>
     </div>
     <div class="col-md-1">
     </div>

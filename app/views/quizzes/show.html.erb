@@ -1,0 +1,9 @@
+<h1>答え</h1>
+<div class="question">
+  <p><%= @quiz.question %></p>
+  <p><%= @quiz.right_answer %></p>
+  <%= link_to "編集する", edit_quiz_path(@quiz.id) %>
+  <%= link_to "削除する", quiz_path(@quiz.id), method: :delete %>
+</div>
+<%= link_to "一覧に戻る", quizzes_pre_path %><br>
+<%= link_to "クイズに挑戦", quizzes_path %>

@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   root 'main#index'
   get "main/quiz" => "main#quiz"
   get "main/result" => "main#result"
+  get "quizzes/pre" => "quizzes#pre"
   #ネストして、どのquestionについてのannswerかわかるように
   # resources :quizzes do
   #   resources :answers
