@@ -3,7 +3,8 @@ class QuizzesController < ApplicationController
 
   def index
     Answer.destroy_all
-    @quizzes = Quiz.order(id: "ASC")
+    @user = current_user
+    @quizzes = Quiz.where(user_id: @user.id).all.order("created_at ASC")
     @answer = Answer.new
   end
 

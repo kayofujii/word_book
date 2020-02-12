@@ -11,9 +11,49 @@
 </head>
 
 <body>
-  <%= yield %>
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-</body>
-</html>
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <h1>単語帳アプリ</h1>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <!-- <li class="nav-item active">
+            <%= link_to "home", root_path, class: "nav-link" %>
+          </li> -->
+          <li class="nav-item">
+            <%= link_to "単語帳", quizzes_pre_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "単語テスト", quizzes_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              ユーザー
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <% if user_signed_in? %>
+              <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+              <% else %>
+              <%= link_to "新規登録", new_user_registration_path, class: "dropdown-item" %><hr>
+              <%= link_to "ログイン", quizzes_path, class: "dropdown-item" %>
+              <% end %>
+            </div>
+          </li>
+        </div>
+      </nav>
+    </header>
+
+    <%= yield %>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <footer class="footer">
+      <div class="container">
+        <p class="text-muted text-center">Copyright © Kayo Fujii All Rights Reserved.</p>
+      </div>
+    </footer>
+  </body>
+  </html>
