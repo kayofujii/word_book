@@ -1,23 +1,22 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-1">
+
+    <div class="col-sm-1">
     </div>
-    <div class="col-md-10">
+
+    <div class="col-sm-10 text-center">
       <%= form_with model: @answer, scope: :answer do |f|  %>
       <% @quizzes.each do |t| %>
-      <div class="question">
-        <%= t.id %>
         <%= t.question %>
-        <%= link_to "編集する", edit_quiz_path(t.id) %>
-        <%= link_to "削除する", quiz_path(t.id), method: :delete %>
-      </div>
       <%= f.text_field "#{t.id}", class: "col-md-12 form-control" %>
       <% end %>
       <br>
       <%= f.submit '回答する', class: "btn btn-primary"%>
       <% end %>
     </div>
-    <div class="col-md-1">
+
+    <div class="col-sm-1">
     </div>
+
   </div>
 </div>

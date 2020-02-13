@@ -1,23 +1,34 @@
-<table class="table">
-<tr><th>問題</th><th>正解</th><th>あなたの回答</th></tr>
-<% @quizzes.zip(@answers).each do |quiz, answer| %>
-<tr>
-<td><%= quiz.question %></td>
-<td><%= quiz.right_answer %></td>
-<td><%= answer.body %></td>
-<td><% if quiz.right_answer == answer.body %>
-正解です
-<% else %>
-不正解です
-<% end %>
-</td>
-</tr>
-<% end %>
-</table>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-1">
+    </div>
 
-正解数は<%= @count %>問です。<br>
-正解率は<%= @kekka %>%です。<br>
+    <div class="col-sm-10 text-center">
+      <table class="table">
+        <tr><th>問題</th><th>正解</th><th>あなたの回答</th><th>正解or不正解</th></tr>
+        <% @quizzes.zip(@answers).each do |quiz, answer| %>
+        <tr>
+          <td><%= quiz.question %></td>
+          <td><%= quiz.right_answer %></td>
+          <td><%= answer.body %></td>
+          <td><% if quiz.right_answer == answer.body %>
+            正解です
+            <% else %>
+            不正解です
+            <% end %>
+          </td>
+        </tr>
+        <% end %>
+      </table>
+
+      <h3>正解数は<%= @count %>問です。</h3>
+      <h3>正解率は<%= @kekka %>%です。</h3>
 
 
-<%= link_to "一覧に戻る", root_path %><br>
-<%= link_to "もう一回", quizzes_path %>
+      <%= link_to "一覧に戻る", root_path, class:"btn btn-light m-2" %><br>
+      <%= link_to "もう一回", quizzes_path, class:"btn btn-primary m-2" %>
+      <div class="col-sm-10">
+        <div class="col-sm-1">
+        </div>
+      </div>
+    </div>

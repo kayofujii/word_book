@@ -25,14 +25,6 @@ ActiveRecord::Schema.define(version: 2020_02_06_075328) do
     t.index ["user_id"], name: "index_answers_on_user_id"
   end
 
-  create_table "questions", force: :cascade do |t|
-    t.string "q_body"
-    t.string "a_body"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.integer "user_id"
-  end
-
   create_table "quizzes", force: :cascade do |t|
     t.string "question"
     t.string "right_answer"

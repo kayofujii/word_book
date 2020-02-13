@@ -1,9 +1,0 @@
-<h1>答え</h1>
-<div class="question">
-  <p><%= @question.q_body %></p>
-  <p><%= @question.a_body %></p>
-  <%= link_to "編集する", edit_question_path(@question.id) %>
-  <%= link_to "削除する", question_path(@question.id), method: :delete %>
-</div>
-
-<%= link_to "一覧に戻る", questions_path %>
