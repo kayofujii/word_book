@@ -7,10 +7,10 @@
     <div class="col-sm-10 text-center">
       <%= form_with model: @answer, scope: :answer do |f|  %>
       <% @quizzes.each do |t| %>
-        <%= t.question %>
-      <%= f.text_field "#{t.id}", class: "col-md-12 form-control" %>
+      <%= t.question %>
+      <%= f.text_field "#{t.id}", class: "form-control float-right col-sm-8" %>
+      <hr>
       <% end %>
-      <br>
       <%= f.submit '回答する', class: "btn btn-primary"%>
       <% end %>
     </div>

@@ -37,9 +37,9 @@ class QuizzesController < ApplicationController
   def update
     @quiz = Quiz.find(params[:id])
     if @quiz.update(quiz_params)
-      redirect_to :action => "index"
+      redirect_to :action => "pre"
     else
-      redirect_to :action => "index"
+      redirect_to :action => "pre"
     end
   end
 

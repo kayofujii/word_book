@@ -4,11 +4,13 @@
     </div>
     <div class="col-sm-10 text-center">
       <% @quizzes.each do |t| %>
-      <%= t.question %><br>
-      <%= link_to "答えを見る", quiz_path(t.id) %>
+      <%= t.question %>
+      <div class="col-sm-8 float-right">
+      <%= link_to "答えを見る", quiz_path(t.id),class: "btn btn-primary" %>
       <%= link_to "編集する", edit_quiz_path(t.id) %>
       <%= link_to "削除する", quiz_path(t.id), method: :delete %>
-      <hr>
+      </div>
+      <br>
       <% end %>
       <%= link_to "単語を追加する", new_quiz_path, class: "btn btn-light m-2" %><br>
       <%= link_to "クイズに挑戦する", quizzes_path, class: "btn btn-primary m-2" %>
