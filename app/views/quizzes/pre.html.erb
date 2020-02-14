@@ -10,7 +10,7 @@
       <%= link_to "編集する", edit_quiz_path(t.id) %>
       <%= link_to "削除する", quiz_path(t.id), method: :delete %>
       </div>
-      <br>
+      <hr>
       <% end %>
       <%= link_to "単語を追加する", new_quiz_path, class: "btn btn-light m-2" %><br>
       <%= link_to "クイズに挑戦する", quizzes_path, class: "btn btn-primary m-2" %>
